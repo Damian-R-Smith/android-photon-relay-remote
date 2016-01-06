@@ -21,7 +21,6 @@ import io.particle.android.sdk.utils.Toaster;
 
 public class StartActivity extends Activity {
 
-    private static final String ARG_VALUE = "ARG_VALUE";
     private static final String ARG_DEVICEID = "ARG_DEVICEID";
 
     @Override
@@ -44,19 +43,16 @@ public class StartActivity extends Activity {
             @Override
             public Object callApi(ParticleCloud sparkCloud) throws ParticleCloudException, IOException {
                 sparkCloud.logIn("YOUR_LOGIN_EMAIL", "YOUR_PASSSWORD");
-                sparkCloud.getDevices();
                 mDevice = sparkCloud.getDevice("YOUR_DEVICE_ID");
                 return -1;
             }
 
             @Override
             public void onSuccess(Object value) {
-
                 Toaster.l(StartActivity.this, "Logged in");
-
+                // Checks if we can connect to device after logging on
                 if(mDevice.isConnected()){
                     Intent intent = new Intent(StartActivity.this, RemoteControlActivity.class);
-                    intent.putExtra(ARG_VALUE, value.toString());
                     intent.putExtra(ARG_DEVICEID, "YOUR_DEVICE_ID");
                     startActivity(intent);
                 }else{
@@ -67,9 +63,7 @@ public class StartActivity extends Activity {
             @Override
             public void onFailure(ParticleCloudException e) {
                 Toaster.l(StartActivity.this, "Something has gone horribly wrong!!! ");
-                e.printStackTrace();
             }
-
         });
     }
 }

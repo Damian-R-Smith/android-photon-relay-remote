@@ -49,41 +49,14 @@ public class RemoteControlActivity extends Activity {
 
     int heat;
 
-
-    private static final String ARG_VALUE = "ARG_VALUE";
     private static final String ARG_DEVICEID = "ARG_DEVICEID";
 
     public static Intent buildIntent(Context ctx, Integer value, String deviceid) {
         Intent intent = new Intent(ctx, StartActivity.class);
-        intent.putExtra(ARG_VALUE, value);
         intent.putExtra(ARG_DEVICEID, deviceid);
 
         return intent;
     }
-
-   public void getAuxState(){
-       Async.executeAsync(ParticleCloud.get(RemoteControlActivity.this), new Async.ApiWork<ParticleCloud, Integer>() {
-           @Override
-           public Integer callApi(ParticleCloud particleCloud) throws ParticleCloudException, IOException {
-               ParticleDevice device = particleCloud.getDevice(getIntent().getStringExtra(ARG_DEVICEID));
-
-               try{
-                   setAux(device.callFunction("readAux"));
-                   setHeat(device.callFunction("readHeat"));
-               }catch(ParticleDevice.FunctionDoesNotExistException e){
-                   Log.e("ERR", e.toString());
-               }
-               return -1;
-           }
-
-           public void onSuccess(Integer result) {
-
-           }
-           public void onFailure(ParticleCloudException value) {
-               Log.e("ERR", "Heat Button Fail : " + value.toString());
-           }
-       });
-   }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
