@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/dim_foreground_material_light"
+
+    android:id="@+id/activity_remote">
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="On"
+        android:id="@+id/aux_btn_off"
+        android:layout_above="@+id/aux_button_on"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Off"
+        android:id="@+id/heating_btn_on"
+        android:layout_alignTop="@+id/aux_button_on"
+        android:layout_alignRight="@+id/heating_button_off"
+        android:layout_alignEnd="@+id/heating_button_off" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#fffff0"
+        android:text="Heating"
+        android:id="@+id/conn_heat"
+        android:layout_marginBottom="73dp"
+        android:layout_above="@+id/heating_button_off"
+        android:layout_alignLeft="@+id/heating_button_off"
+        android:layout_alignStart="@+id/heating_button_off" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fffff0"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Auxilary"
+        android:id="@+id/conn_aux"
+        android:layout_alignTop="@+id/conn_heat"
+        android:layout_alignRight="@+id/aux_btn_off"
+        android:layout_alignEnd="@+id/aux_btn_off" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Off"
+        android:id="@+id/aux_button_on"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/aux_btn_off"
+        android:layout_alignStart="@+id/aux_btn_off" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:text="On"
+        android:id="@+id/heating_button_off"
+        android:layout_above="@+id/aux_button_on"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="42dp"
+        android:layout_marginEnd="42dp" />
+
+
+</RelativeLayout>
