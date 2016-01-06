@@ -1,4 +1,4 @@
-package ds.marysheatingremote;
+package ds.heatingremote;
 
 import android.app.Activity;
 import android.content.Context;
