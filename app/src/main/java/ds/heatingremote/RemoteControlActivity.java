@@ -29,6 +29,9 @@ public class RemoteControlActivity extends Activity {
     private Button heatOff;
     private Button auxOff;
 
+    int aux;
+    int heat;
+
     public int getAux() {
         return aux;
     }
@@ -37,8 +40,6 @@ public class RemoteControlActivity extends Activity {
         this.aux = aux;
     }
 
-    int aux;
-
     public int getHeat() {
         return heat;
     }
@@ -46,8 +47,6 @@ public class RemoteControlActivity extends Activity {
     public void setHeat(int heat) {
         this.heat = heat;
     }
-
-    int heat;
 
     private static final String ARG_DEVICEID = "ARG_DEVICEID";
 
